@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "299752360321",
+    "project_id": "topstar-b103a",
+    "storage_bucket": "topstar-b103a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:299752360321:android:8ae72fe2594421cec98080",
+        "android_client_info": {
+          "package_name": "com.example.top_star"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFENF0ZLDfUbSVCqV1MVlrjXPJzhP--OI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
