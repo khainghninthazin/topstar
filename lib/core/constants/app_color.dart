@@ -15,7 +15,7 @@ static const Color pink = Color(0xffff34D95);
   static const Color p3color = Color(0xffffff413839);
   static const Color p4color = Color(0xffffffA76548);
 
-  static const Color red = Color.fromARGB(255, 237, 171, 12);
+  static const Color red = Color.fromARGB(255, 237, 12, 12);
   static const Color bottomColor= Color(0xfff723858);
   static const Color white= Color.fromARGB(255, 255, 255, 255);
 

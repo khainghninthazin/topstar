@@ -42,12 +42,12 @@ class _FilterPageState extends State<FilterPage> {
           "filter".tr,
           style: TextStyle(
               color: Colors.black,
-              fontSize: Dimesion.font16,
+              fontSize: Dimesion.font18,
               fontWeight: FontWeight.bold),
         ),
       ),
       bottomNavigationBar: Container(
-        padding: EdgeInsets.only(left: 27, right: 23, bottom: 18),
+        padding: EdgeInsets.only(left: Dimesion.width20+7, right: Dimesion.width20+3, bottom: Dimesion.height15+3),
         child: InkWell(
           onTap: () {
             Get.toNamed(RouteHelper.fitsearch, arguments: FilterSearchView());
@@ -130,7 +130,7 @@ class _FilterPageState extends State<FilterPage> {
                     ),
                   ],
                 ),
-                Gap(Dimesion.height20),
+                Gap(Dimesion.height30),
                 Text(
                   "brand".tr,
                   style: GoogleFonts.outfit(
@@ -159,7 +159,7 @@ class _FilterPageState extends State<FilterPage> {
                             // Add your onTap functionality here
                           },
                           child: Container(
-                            padding: EdgeInsets.only(left: 2, top: 2),
+                            padding: EdgeInsets.only(left: Dimesion.width5-3, top: Dimesion.height5-3),
                             alignment: Alignment.center,
                             decoration: BoxDecoration(
                                 color: AppColor.primaryClr,
@@ -170,8 +170,7 @@ class _FilterPageState extends State<FilterPage> {
                                 color: AppColor.white,
                                 fontSize: Dimesion.font16,
                               ),
-                            ),
-                          ),
+                            ),),
                         );
                       },
                     ),
@@ -213,7 +212,7 @@ class _FilterPageState extends State<FilterPage> {
                       ],
                     )),
                     Padding(
-                      padding: const EdgeInsets.only(top: 40),
+                      padding:  EdgeInsets.only(top: Dimesion.height40),
                       child: Center(
                         child: Text(
                           textAlign: TextAlign.end,

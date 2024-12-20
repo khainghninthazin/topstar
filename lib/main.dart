@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Sea Standard 2024 jjjjjj',
+      title: 'Top Star',
       initialBinding: AppBinding(),
       theme: myThemeData(context),
       initialRoute: RouteHelper.nav,

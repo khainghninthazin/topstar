@@ -10,12 +10,12 @@ class AppLogoWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: Dimesion.height40 * 1.5,
+      height: Dimesion.height40 * 3,
       decoration: BoxDecoration(
-          color: bgColor ?? AppColor.primaryClr,
+          color: bgColor ?? AppColor.bgColor,
           shape: BoxShape.circle,
           image: const DecorationImage(
-              image: AssetImage("assets/img/logo.png"))),
+              image: AssetImage("assets/image/loginregister_logo.png"))),
     );
   }
 }

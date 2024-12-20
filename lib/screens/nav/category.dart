@@ -55,7 +55,7 @@ class _CategoryPageState extends State<CategoryPage>
             // TabBar Container
             Container(
               
-              height: 50,
+              height: Dimesion.height40,
               decoration: BoxDecoration(
                 color: AppColor.bgColor,
                 borderRadius: BorderRadius.circular(10),
@@ -71,17 +71,17 @@ class _CategoryPageState extends State<CategoryPage>
                 labelColor: Colors.white, // Selected text color
                 unselectedLabelColor: Colors.black, // Unselected text color
                 labelStyle: const TextStyle(fontWeight: FontWeight.bold),
-                tabs: const [
+                tabs:  [
                   Tab(
                     child: Text(
                       "Category",
-                      style: TextStyle(fontSize: 16),
+                      style: TextStyle(fontSize: Dimesion.font16),
                     ),
                   ),
                   Tab(
                     child: Text(
                       "Brand",
-                      style: TextStyle(fontSize: 16),
+                      style: TextStyle(fontSize: Dimesion.font16),
                     ),
                   ),
                 ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:top_star/core/constants/app_color.dart';
 import 'package:top_star/core/extension/text_theme_ext.dart';
 
 
@@ -60,7 +61,7 @@ class _MyTextFieldWidgetState extends State<MyTextFieldWidget> {
                             blurRadius: 5,
                             color: Colors.black12)
                       ],
-              color: Colors.white,
+              color: AppColor.bgColor,
               borderRadius: BorderRadius.circular(Dimesion.radius15 / 2)),
           child: Row(
             children: [

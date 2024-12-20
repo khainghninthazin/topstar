@@ -58,15 +58,15 @@ class ToolbarWidget extends StatelessWidget {
                   height: 5,
                   decoration: BoxDecoration(
                     color: AppColor.primaryClr,
-                    borderRadius: BorderRadius.circular(14),
+                    borderRadius: BorderRadius.circular(Dimesion.font12),
                   ),
                   child: IconButton(
                     onPressed: () {
                       // Favorite button action
                     },
-                    icon: const Icon(
+                    icon:  Icon(
                       Icons.notifications,
-                      size: 20,
+                      size: Dimesion.size18,
                       color: Colors.white,
                     ),
                   ),
@@ -87,7 +87,7 @@ class ToolbarWidget extends StatelessWidget {
                 },
                 child: Container(
                   width: MediaQuery.of(context).size.width,
-                  padding: EdgeInsets.all(Dimesion.width5),
+                  padding: EdgeInsets.all(Dimesion.width10-2),
                   decoration: BoxDecoration(
                       boxShadow: [
                         BoxShadow(
@@ -101,14 +101,14 @@ class ToolbarWidget extends StatelessWidget {
                     children: [
                       Icon(
                         CupertinoIcons.search,
-                        size: Dimesion.iconSize25,
+                        size: Dimesion.iconSize16,
                         color: AppColor.primaryClr,
                       ),
                       Gap(Dimesion.width5),
                       Text(
                         "search".tr,
                         style: TextStyle(
-                            color: Colors.grey, fontSize: Dimesion.font16),
+                            color: Colors.grey, fontSize: Dimesion.font14),
                       )
                     ],
                   ),
@@ -122,7 +122,7 @@ class ToolbarWidget extends StatelessWidget {
                 },
                 child: Container(
                   height: Dimesion.height40,
-                  width:  Dimesion.width20*2, // Ensure a consistent aspect ratio
+                      width: Dimesion.width20*2, // Ensure a consistent aspect ratio
                   decoration: BoxDecoration(
                     color: AppColor
                         .primaryClr, // Use primary color for the container

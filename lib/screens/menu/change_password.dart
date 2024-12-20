@@ -17,92 +17,169 @@ class ChangePasswordPage extends GetView<AuthController> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      bottomNavigationBar: Container(
-        padding: EdgeInsets.all(Dimesion.radius10),
-        decoration: BoxDecoration(
-          boxShadow:[
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.5), //color of shadow
-              spreadRadius: 5, //spread radius
-              blurRadius: 7, // blur radius
-              offset: Offset(0, 2), // changes position of shadow
-              //first paramerter of offset is left-right
-              //second parameter is top to down
-            ),
-            //you can set more BoxShadow() here
-          ],
-          color: AppColor.white,),
-        child: AppButtonWidget(
-          color: AppColor.primaryClr,
-          title: Text(
-            "Submit".tr,
-            style: Theme.of(context)
-                .textTheme
-                .titleMedium!
-                .copyWith(color: Colors.white),
-          ),
-          onTap: () {
-            if(controller.oldPasswordController.text.toString()!="null" && controller.newPasswordController.text.toString()!="null" && controller.newConfirmPasswordController.text.toString()!="null"){
-              controller.changePassword(oldPassword: controller.oldPasswordController.text, newPassword: controller.newPasswordController.text, confirmPassword: controller.newConfirmPasswordController.text);
-            }else{
-              ToastService.errorToast("Please Fill All Data");
-            }
-          },
-          minWidth: Dimesion.screeWidth ,
-          height: Dimesion.height40 * 1.1,
-        ),
-      ),
+      // bottomNavigationBar: Container(
+      //   padding: EdgeInsets.all(Dimesion.radius10),
+      //   decoration: BoxDecoration(
+      //     boxShadow: [
+      //       BoxShadow(
+      //         color: Colors.grey.withOpacity(0.5), //color of shadow
+      //         spreadRadius: 5, //spread radius
+      //         blurRadius: 7, // blur radius
+      //         offset: Offset(0, 2), // changes position of shadow
+      //         //first paramerter of offset is left-right
+      //         //second parameter is top to down
+      //       ),
+      //       //you can set more BoxShadow() here
+      //     ],
+      //     color: AppColor.white,
+      //   ),
+      //   child: AppButtonWidget(
+      //     color: AppColor.primaryClr,
+      //     title: Text(
+      //       "Submit".tr,
+      //       style: Theme.of(context)
+      //           .textTheme
+      //           .titleMedium!
+      //           .copyWith(color: Colors.white),
+      //     ),
+      //     onTap: () {
+      //       if (controller.oldPasswordController.text.toString() != "null" &&
+      //           controller.newPasswordController.text.toString() != "null" &&
+      //           controller.newConfirmPasswordController.text.toString() !=
+      //               "null") {
+      //         controller.changePassword(
+      //             oldPassword: controller.oldPasswordController.text,
+      //             newPassword: controller.newPasswordController.text,
+      //             confirmPassword:
+      //                 controller.newConfirmPasswordController.text);
+      //       } else {
+      //         ToastService.errorToast("Please Fill All Data");
+      //       }
+      //     },
+      //     minWidth: Dimesion.screeWidth,
+      //     height: Dimesion.height40 * 1.1,
+      //   ),
+      // ),
       appBar: AppBar(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
             bottom: Radius.circular(Dimesion.radius15),
           ),
         ),
-        toolbarHeight: Dimesion.screenHeight/11,
+        toolbarHeight: Dimesion.screenHeight / 11,
         leading: backButton(),
-        backgroundColor: AppColor.primaryClr,
+        backgroundColor: AppColor.white,
         centerTitle: true,
-        title: Text("Change Password".tr,style: TextStyle(color: Colors.white,fontSize: Dimesion.font16,fontWeight: FontWeight.bold),),
+        title: Text(
+          "Change Password".tr,
+          style: TextStyle(
+              color: Colors.black,
+              fontSize: Dimesion.font18,
+              fontWeight: FontWeight.bold),
+        ),
       ),
       body: Container(
         padding: EdgeInsets.all(Dimesion.width15),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("  "+"Current Password".tr,style: TextStyle(color: Colors.black,fontSize: Dimesion.font16,fontWeight: FontWeight.normal),),
-            MyTextFieldWidget(
-              hideIcon: true,
-              controller: controller.oldPasswordController,
-              isPasswords: true,
-              prefixIcon: Icons.key,
-              inputType: TextInputType.text,
-              inputAction: TextInputAction.next,
-              fieldValidator:
-              AppValidator.passwordValidator(context: context), height: Dimesion.height40,
+            Text(
+              "  " + "Enter Current Password".tr,
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: Dimesion.font16,
+                  fontWeight: FontWeight.normal),
+            ),
+            Container(
+              padding: EdgeInsets.only(left: Dimesion.width10/2, right: Dimesion.width10/2),
+              child: MyTextFieldWidget(
+                hintText: '**********',
+                hideIcon: true,
+                controller: controller.oldPasswordController,
+                isPasswords: true,
+                prefixIcon: Icons.key,
+                inputType: TextInputType.text,
+                inputAction: TextInputAction.next,
+                fieldValidator: AppValidator.passwordValidator(context: context),
+                height: Dimesion.height40,
+              ),
             ),
             Gap(Dimesion.height10),
-            Text("  "+"New Password".tr,style: TextStyle(color: Colors.black,fontSize: Dimesion.font16,fontWeight: FontWeight.normal),),
-            MyTextFieldWidget(
-              hideIcon: true,
-              controller: controller.newPasswordController,
-              isPasswords: true,
-              prefixIcon: Icons.key,
-              inputType: TextInputType.text,
-              inputAction: TextInputAction.next,
-              fieldValidator:
-              AppValidator.passwordValidator(context: context), height: Dimesion.height40,
+            Text(
+              "  " + "Enter New Password".tr,
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: Dimesion.font16,
+                  fontWeight: FontWeight.normal),
+            ),
+            Container(
+              padding: EdgeInsets.only(left: Dimesion.width10/2, right: Dimesion.width10/2),
+              child: MyTextFieldWidget(
+                hintText: '**********',
+                hideIcon: true,
+                controller: controller.newPasswordController,
+                isPasswords: true,
+                prefixIcon: Icons.key,
+                inputType: TextInputType.text,
+                inputAction: TextInputAction.next,
+                fieldValidator: AppValidator.passwordValidator(context: context),
+                height: Dimesion.height40,
+              ),
             ),
             Gap(Dimesion.height10),
-            Text("  "+"Confirm Password".tr,style: TextStyle(color: Colors.black,fontSize: Dimesion.font16,fontWeight: FontWeight.normal),),
-            MyTextFieldWidget(
-              hideIcon: true,
-              controller: controller.newConfirmPasswordController,
-              isPasswords: true,
-              prefixIcon: Icons.key,
-              inputType: TextInputType.text,
-              inputAction: TextInputAction.next,
-              fieldValidator:
-              AppValidator.passwordValidator(context: context), height: Dimesion.height40,
+            Text(
+              "  " + "Confirm Password".tr,
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: Dimesion.font16,
+                  fontWeight: FontWeight.normal),
+            ),
+            Container(
+              padding: EdgeInsets.only(left: Dimesion.width10/2, right: Dimesion.width10/2),
+              child: MyTextFieldWidget(
+                hintText: '**********',
+                hideIcon: true,
+                controller: controller.newConfirmPasswordController,
+                isPasswords: true,
+                prefixIcon: Icons.key,
+                inputType: TextInputType.text,
+                inputAction: TextInputAction.next,
+                fieldValidator: AppValidator.passwordValidator(context: context),
+                height: Dimesion.height40,
+              ),
+            ),
+            Gap(Dimesion.height30),
+            Center(
+              child: Container(
+                padding: EdgeInsets.only(left: Dimesion.width10/2, right: Dimesion.width10/2),
+                child: AppButtonWidget(
+                  color: AppColor.pink,
+                  title: Text(
+                    "Change".tr,
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleMedium!
+                        .copyWith(color: Colors.white),
+                  ),
+                  onTap: () {
+                    if (controller.oldPasswordController.text.toString() != "null" &&
+                        controller.newPasswordController.text.toString() !=
+                            "null" &&
+                        controller.newConfirmPasswordController.text.toString() !=
+                            "null") {
+                      controller.changePassword(
+                          oldPassword: controller.oldPasswordController.text,
+                          newPassword: controller.newPasswordController.text,
+                          confirmPassword:
+                              controller.newConfirmPasswordController.text);
+                    } else {
+                      ToastService.errorToast("Please Fill All Data");
+                    }
+                  },
+                  minWidth: Dimesion.screeWidth,
+                  height: Dimesion.height40 * 1.1,
+                ),
+              ),
             ),
           ],
         ),

@@ -90,7 +90,8 @@ class AllProductWidget extends StatelessWidget {
                         child: Row(
                           children: List.generate(
                             newpcontroller.products.length,
-                            (index) => Container(
+                            (index) =>
+                             Container(
                               padding: EdgeInsets.only(left:Dimesion.size10/6),
                               // width: 170, // Set fixed width for each card
                               // margin: const EdgeInsets.symmetric(horizontal: 5),
@@ -111,7 +112,7 @@ class AllProductWidget extends StatelessWidget {
                                   child: Stack(
                                     children: [
                                       Container(
-                                        width: 150, // 45% of screen width
+                                        width: Dimesion.width30*5, // 45% of screen width
                                         margin: const EdgeInsets.all(4),
                                         decoration: BoxDecoration(
                                           color: Colors.white,
@@ -164,7 +165,7 @@ class AllProductWidget extends StatelessWidget {
                                                       newpcontroller
                                                           .products[index]
                                                           .imageUrl, // Replace with your image URL
-                                                      height: 100,
+                                                      height: Dimesion.height10*10,
                                                       width: double.infinity,
                                                       fit: BoxFit.contain,
                                                     ),
@@ -186,24 +187,24 @@ class AllProductWidget extends StatelessWidget {
                                                     style: TextStyle(
                                                       fontWeight:
                                                           FontWeight.bold,
-                                                      fontSize: 16,
+                                                      fontSize: Dimesion.font14,
                                                       color: Colors.black,
                                                     ),
                                                   ),
-                                                  SizedBox(height: Dimesion.size10/4),
+                                                  SizedBox(height: Dimesion.size10/5),
                                                   Text(
                                                     "Category",
                                                     style: TextStyle(
                                                       color: Colors.grey,
-                                                      fontSize: 12,
+                                                      fontSize: Dimesion.font12,
                                                     ),
                                                   ),
-                                                  SizedBox(height: 8),
+                                                  SizedBox(height: Dimesion.height5),
                                                   Text(
                                                     "20,000 Ks",
                                                     style: TextStyle(
                                                       color: Colors.pink,
-                                                      fontSize: 14,
+                                                      fontSize: Dimesion.font12,
                                                       fontWeight:
                                                           FontWeight.bold,
                                                     ),
@@ -227,7 +228,7 @@ class AllProductWidget extends StatelessWidget {
                                           child: Icon(
                                             Icons.favorite_border,
                                             color: Colors.redAccent,
-                                            size: 20,
+                                            size: Dimesion.size18,
                                           ),
                                         ),
                                       ),

@@ -31,7 +31,7 @@ class _FavScreenState extends State<FavScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColor.bgColor,
       appBar: AppBar(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
@@ -40,9 +40,9 @@ class _FavScreenState extends State<FavScreen> {
         ),
         toolbarHeight: Dimesion.screenHeight/11,
         leading: backButton(),
-        backgroundColor: AppColor.primaryClr,
+        backgroundColor: AppColor.white,
         centerTitle: true,
-        title: Text("Whitelist".tr,style: TextStyle(color: Colors.white,fontSize: Dimesion.font16,fontWeight: FontWeight.bold),),
+        title: Text("Whitelist".tr,style: TextStyle(color: Colors.black,fontSize: Dimesion.font18,fontWeight: FontWeight.bold),),
       ),
 
       body: productController.allProducts.length!=0?

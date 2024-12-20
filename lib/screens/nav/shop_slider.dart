@@ -20,7 +20,7 @@ class ShopSliderWidget extends StatelessWidget {
             children: [
               SizedBox(
                 height: Dimesion.screenHeight / 5,
-                width: Dimesion.width30*9.5,
+                width: Dimesion.width30*9,
                 child: CarouselSlider(
                   options: CarouselOptions(
                     autoPlayAnimationDuration: Duration(seconds: 1),

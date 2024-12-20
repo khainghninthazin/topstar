@@ -4,9 +4,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
+
 import 'package:top_star/core/extension/text_theme_ext.dart';
 import 'package:top_star/services/toast_service.dart';
-
 
 import '../../controllers/auth_controller.dart';
 import '../../core/app_widgets/app_button.dart';
@@ -17,13 +17,12 @@ import '../../core/constants/dimesions.dart';
 import '../../router/route_helper.dart';
 import '../../services/app_validator_service.dart';
 
-class VerifyOtpPage extends GetView<AuthController>  {
+class VerifyOtpPage extends GetView<AuthController> {
   StreamController<ErrorAnimationType>? errorController;
 
   bool hasError = false;
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -32,36 +31,54 @@ class VerifyOtpPage extends GetView<AuthController>  {
             bottom: Radius.circular(Dimesion.radius15),
           ),
         ),
-        toolbarHeight: Dimesion.screenHeight/11,
+        toolbarHeight: Dimesion.screenHeight / 11,
         leading: backButton(),
-        backgroundColor: AppColor.primaryClr,
+        backgroundColor: AppColor.bgColor,
         centerTitle: true,
-        title: Text("Verify OTP".tr,style: TextStyle(color: Colors.white,fontSize: Dimesion.font16,fontWeight: FontWeight.bold),),
+        title: Text(
+          "Verification",
+          style: TextStyle(
+              color: Colors.black,
+              fontSize: Dimesion.font16,
+              fontWeight: FontWeight.bold),
+        ),
       ),
+      //resizeToAvoidBottomInset: true,
       body: Container(
         padding: EdgeInsets.all(Dimesion.width20),
         child: Column(
           children: [
-            Image.asset("assets/img/otp.png",height: Dimesion.screenHeight/3.9,width: Dimesion.screeWidth,),
+            Image.asset(
+              "assets/img/otp.png",
+              height: Dimesion.screenHeight / 3.9,
+              width: Dimesion.screeWidth,
+            ),
             SizedBox(
               height: Dimesion.height15,
             ),
             Center(
               child: Text(
                 "Verification".tr,
-                style: TextStyle(fontSize: Dimesion.font16,fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    fontSize: Dimesion.font18, fontWeight: FontWeight.bold),
               ),
             ),
             Center(
-              child: Text(textAlign: TextAlign.center,
-                "We have sent verification code to - ".tr+controller.forgotEmailController.text,
-                style: TextStyle(fontSize: Dimesion.font14-3,fontWeight: FontWeight.normal),
+              child: Text(
+                textAlign: TextAlign.center,
+                "We have sent verification code to - ".tr +
+                    controller.forgotEmailController.text,
+                style: TextStyle(
+                    color: AppColor.grey,
+                    fontSize: Dimesion.font14 - 3,
+                    fontWeight: FontWeight.normal),
               ),
             ),
             SizedBox(
               height: Dimesion.height15,
             ),
             PinCodeTextField(
+              //backgroundColor: AppColor.grey,
               appContext: context,
               pastedTextStyle: TextStyle(
                 color: Colors.green.shade600,
@@ -73,7 +90,7 @@ class VerifyOtpPage extends GetView<AuthController>  {
               obscuringWidget: const Text("*"),
               blinkWhenObscuring: true,
               animationType: AnimationType.fade,
-
+      
               pinTheme: PinTheme(
                 shape: PinCodeFieldShape.box,
                 borderRadius: BorderRadius.circular(5),
@@ -116,51 +133,75 @@ class VerifyOtpPage extends GetView<AuthController>  {
             SizedBox(
               height: Dimesion.height15,
             ),
-            Flexible(child: AppButtonWidget(
-                title: Text(
-                  "Continue".tr,
-                  style: context.bodyLarge
-                      .copyWith(color: Colors.white),
-                ),
-                onTap: () {
-                  print(controller.otpController.text.length);
-                  if(controller.otpController.text.toString()!="" && controller.otpController.text.length==6){
-                    controller.verify_forgotPassword(email: controller.forgotEmailController.text, code: controller.otpController.text);
-                  }else{
-                    errorController!.add(ErrorAnimationType
-                        .shake);
-                    ToastService.errorToast("Enter OTP Code");
-                  }
-
-                },
-                color: AppColor.primaryClr,
-                minWidth: double.maxFinite)),
-
-            const SizedBox(
-              height: 20,
-            ),
-            Flexible(child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                const Text(
-                  "Didn't receive the code? ",
-                  style: TextStyle(color: Colors.black54, fontSize: 15),
-                ),
+                // const Text(
+                //   "Didn't receive the code? ",
+                //   style: TextStyle(color: Colors.black54, fontSize: 15),
+                // ),
                 TextButton(
                   onPressed: () => {
-                    controller.forgotPassword(email: controller.forgotEmailController.text)
+                    controller.forgotPassword(
+                        email: controller.forgotEmailController.text)
                   },
                   child: const Text(
-                    "RESEND",
+                    "Resent",
                     style: TextStyle(
-                      color: Color(0xFF91D3B3),
-                      fontWeight: FontWeight.bold,
+                      color: AppColor.grey,
                       fontSize: 16,
                     ),
                   ),
                 )
               ],
-            )),
+            ),
+            Flexible(
+                child: AppButtonWidget(
+                    title: Text(
+                      "Continue".tr,
+                      style: context.bodyLarge.copyWith(color: Colors.white),
+                    ),
+                    onTap: () {
+                      print(controller.otpController.text.length);
+                      if (controller.otpController.text.toString() != "" &&
+                          controller.otpController.text.length == 6) {
+                        controller.verify_forgotPassword(
+                            email: controller.forgotEmailController.text,
+                            code: controller.otpController.text);
+                      } else {
+                        errorController!.add(ErrorAnimationType.shake);
+                        ToastService.errorToast("Enter OTP Code");
+                      }
+                    },
+                    color: AppColor.primaryClr,
+                    minWidth: double.maxFinite)),
+            // const SizedBox(
+            //   height: 20,
+            // ),
+            // Flexible(
+            //     child: Row(
+            //   mainAxisAlignment: MainAxisAlignment.center,
+            //   children: [
+            //     const Text(
+            //       "Didn't receive the code? ",
+            //       style: TextStyle(color: Colors.black54, fontSize: 15),
+            //     ),
+            //     TextButton(
+            //       onPressed: () => {
+            //         controller.forgotPassword(
+            //             email: controller.forgotEmailController.text)
+            //       },
+            //       child: const Text(
+            //         "RESEND",
+            //         style: TextStyle(
+            //           color: Color(0xFF91D3B3),
+            //           fontWeight: FontWeight.bold,
+            //           fontSize: 16,
+            //         ),
+            //       ),
+            //     )
+            //   ],
+            // )),
           ],
         ),
       ),

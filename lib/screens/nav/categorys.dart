@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -20,14 +19,14 @@ class CategoryWidget extends StatelessWidget {
      final stringList=["category1","category2","category3","category4",];
     
     return Padding(
-      padding: const EdgeInsets.all(20),
+      padding:  EdgeInsets.all(20),
       child: Column(
         
         children: [
        
-        SizedBox(height: 20,),
+        SizedBox(height: Dimesion.height20,),
         Padding(
-          padding: const EdgeInsets.only(left: 12,right: 12),
+          padding:  EdgeInsets.only(left: Dimesion.width10+2,right:  Dimesion.width10+2),
           child: Column(
                 children: [
                   GridView.builder(

@@ -39,7 +39,7 @@ class _ProfilePageState extends State<ProfilePage> {
       builder: (value) {
         return Obx(() => Scaffold(
               appBar: AppBar(
-                backgroundColor: AppColor.bottomColor,
+                backgroundColor: AppColor.primaryClr,
                 automaticallyImplyLeading: false,
                 centerTitle: true,
                 title: Text(
@@ -78,9 +78,9 @@ class _ProfilePageState extends State<ProfilePage> {
                           Stack(
                             children: [
                               Container(
-                                height: 200,
+                                height: Dimesion.height40 * 4.2,
                                 decoration: BoxDecoration(
-                                  color: AppColor.bottomColor,
+                                  color: AppColor.primaryClr,
                                   borderRadius: BorderRadius.only(
                                     bottomLeft: Radius.circular(30),
                                     bottomRight: Radius.circular(30),
@@ -88,29 +88,34 @@ class _ProfilePageState extends State<ProfilePage> {
                                 ),
                               ),
                               Positioned(
-                                top: 15,
-                                left: 135,
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      height: 120,
-                                      width: 120,
-                                      decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          color: AppColor.bgColor,
-                                          image: DecorationImage(
-                                              image: AssetImage(
-                                                  'assets/img/profile.png'))),
+                                //top: Dimesion.height30,
+                                //left: Dimesion.width30,
+                                child: Center(
+                                  child: Padding(
+                                    padding: EdgeInsets.only(top: Dimesion.height20),
+                                    child: Column(
+                                      children: [
+                                        Container(
+                                          height: Dimesion.height40 * 2.5,
+                                          width: Dimesion.height40 * 2.5,
+                                          decoration: BoxDecoration(
+                                              shape: BoxShape.circle,
+                                              color: AppColor.bgColor,
+                                              image: DecorationImage(
+                                                  image: AssetImage(
+                                                      'assets/img/profile.png'))),
+                                        ),
+                                        Gap(Dimesion.height10),
+                                        Text(
+                                          'Eddie',
+                                          style: TextStyle(
+                                              color: AppColor.white,
+                                              fontSize: Dimesion.font12,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ],
                                     ),
-                                    Gap(Dimesion.height10),
-                                    Text(
-                                      'Eddie',
-                                      style: TextStyle(
-                                          color: AppColor.white,
-                                          fontSize: Dimesion.font12,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                  ],
+                                  ),
                                 ),
                               ),
                             ],
@@ -233,7 +238,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               text: "contact_us".tr,
                               //subText: "Our customer service",
                               imgAsset: "assets/icon/contact_us.png",
-                              onPressed: () {}),
+                              onPressed: () {Get.toNamed(RouteHelper.contactUs);}),
                           Divider(
                             color: Colors.grey[300],
                             height: 1,
@@ -245,7 +250,9 @@ class _ProfilePageState extends State<ProfilePage> {
                               text: "privacy_policy".tr,
                               //subText: "Terms and Conditions",
                               imgAsset: "assets/icon/privacy_policy.png",
-                              onPressed: () {}),
+                              onPressed: () {
+                                Get.toNamed(RouteHelper.privacyPolicy);
+                              }),
                           Divider(
                             color: Colors.grey[300],
                             height: 1,
@@ -298,7 +305,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                       value: true,
                                       onChanged: (value) {},
                                       activeColor: AppColor.white,
-                                      activeTrackColor: Colors.green,
+                                      activeTrackColor: AppColor.primaryClr,
                                     ),
                                   ),
                                 ],
@@ -335,7 +342,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                       value: false,
                                       onChanged: (value) {},
                                       activeColor: AppColor.white,
-                                      activeTrackColor: Colors.green,
+                                      activeTrackColor: AppColor.primaryClr
                                     ),
                                   ),
                                 ],
@@ -414,7 +421,8 @@ class _ProfilePageState extends State<ProfilePage> {
                           //               style: TextStyle(
                           //                   color:
                           //                       controller.slideTab.value == 0
-                          //                           ? AppColor.black//                           : AppColor.white),
+                          //                           ? AppColor.black
+                          //                           : AppColor.white),
                           //             ),
                           //             1: Text(
                           //               'MYN',

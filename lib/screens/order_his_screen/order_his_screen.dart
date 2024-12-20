@@ -38,6 +38,7 @@ class _OrderHisScreenState extends State<OrderHisScreen> {
   Widget build(BuildContext context) {
     return GetBuilder<OrderHisController>(builder: (value){
       return Scaffold(
+        backgroundColor: AppColor.bgColor,
           appBar: AppBar(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.vertical(
@@ -46,9 +47,9 @@ class _OrderHisScreenState extends State<OrderHisScreen> {
             ),
             toolbarHeight: Dimesion.screenHeight/11,
             leading: backButton(),
-            backgroundColor: AppColor.primaryClr,
+            backgroundColor: AppColor.white,
             centerTitle: true,
-            title: Text("Order History".tr,style: TextStyle(color: Colors.white,fontSize: Dimesion.font16,fontWeight: FontWeight.bold),),
+            title: Text("Order History".tr,style: TextStyle(color: Colors.black,fontSize: Dimesion.font18,fontWeight: FontWeight.bold),),
           ),
           body: GetBuilder<OrderHisController>(
             builder: (controller) => Obx(() {

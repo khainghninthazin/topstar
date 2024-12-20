@@ -4,6 +4,7 @@ import 'package:gap/gap.dart';
 
 import 'package:get/get.dart';
 import 'package:top_star/controllers/new_arrival_detail_controller.dart';
+import 'package:top_star/core/app_widgets/app_card_widget.dart';
 import 'package:top_star/core/app_widgets/back_button.dart';
 import 'package:top_star/core/constants/app_color.dart';
 import 'package:top_star/core/constants/dimesions.dart';
@@ -161,150 +162,151 @@ class FilterSearchView extends GetView {
                       physics: const NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
                       gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
+                           SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: 2,
-                              mainAxisExtent: 200,
+                              mainAxisExtent: Dimesion.height40*5,
                               mainAxisSpacing: 5,
                               crossAxisSpacing: 5),
                       itemCount: fscontroller.product.length,
                       itemBuilder: (context, index) {
-                        return InkWell(
-                          onTap: () {
-                            Get.toNamed(RouteHelper.productdetail,
-                                arguments: ProductDetailPage());
-                          },
-                          // onTap: () => Get.toNamed('/movie-detail', arguments: recontroller.popularmodel[index].id),
-                          child: Container(
-                            padding: EdgeInsets.only(left: 5),
-                            // width: 170, // Set fixed width for each card
-                            // margin: const EdgeInsets.symmetric(horizontal: 5),
-                            // decoration: BoxDecoration(
-                            //   color: Colors.grey[850],
-                            //   borderRadius: BorderRadius.circular(20),
-                            // ),
-                            child: InkWell(
-                                borderRadius: BorderRadius.circular(20),
-                                // onTap: () {
-                                //   // Navigate to the movie details page
-                                //   Get.toNamed( '/movie-detail', arguments: recontroller.popularmodel[index].id);
-                                // },
-                                child: Stack(
-                                  children: [
-                                    Container(
-                                      width: 150, // 45% of screen width
-                                      margin: const EdgeInsets.all(2),
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: BorderRadius.circular(15),
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: Colors.grey.withOpacity(0.2),
-                                            spreadRadius: 1,
-                                            blurRadius: 5,
-                                            offset: const Offset(0, 2),
-                                          ),
-                                        ],
-                                      ),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          // Product Image with Favorite Icon
-                                          Container(
-                                            height: 100,
-                                            margin: EdgeInsets.all(10),
-                                            decoration: BoxDecoration(
-                                                color: Colors.blueGrey,
-                                                borderRadius: BorderRadius.only(
-                                                    topLeft:
-                                                        Radius.circular(10),
-                                                    topRight:
-                                                        Radius.circular(10),
-                                                    bottomLeft:
-                                                        Radius.circular(10),
-                                                    bottomRight:
-                                                        Radius.circular(10))),
-                                            child: Column(
-                                              children: [
-                                                ClipRRect(
-                                                  borderRadius:
-                                                      const BorderRadius.only(
-                                                    topLeft:
-                                                        Radius.circular(15),
-                                                    topRight:
-                                                        Radius.circular(15),
-                                                  ),
-                                                  child: Image.asset(
-                                                    fscontroller.product[index]
-                                                        .imageUrl, // Replace with your image URL
-                                                    height: 100,
-                                                    width: double.infinity,
-                                                    fit: BoxFit.contain,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
+                        // return InkWell(
+                        //   onTap: () {
+                        //     Get.toNamed(RouteHelper.productdetail,
+                        //         arguments: ProductDetailPage());
+                        //   },
+                        //   // onTap: () => Get.toNamed('/movie-detail', arguments: recontroller.popularmodel[index].id),
+                        //   child: Container(
+                        //     padding: EdgeInsets.only(left: 5),
+                        //     // width: 170, // Set fixed width for each card
+                        //     // margin: const EdgeInsets.symmetric(horizontal: 5),
+                        //     // decoration: BoxDecoration(
+                        //     //   color: Colors.grey[850],
+                        //     //   borderRadius: BorderRadius.circular(20),
+                        //     // ),
+                        //     child: InkWell(
+                        //         borderRadius: BorderRadius.circular(20),
+                        //         // onTap: () {
+                        //         //   // Navigate to the movie details page
+                        //         //   Get.toNamed( '/movie-detail', arguments: recontroller.popularmodel[index].id);
+                        //         // },
+                        //         child: Stack(
+                        //           children: [
+                        //             Container(
+                        //               width: 150, // 45% of screen width
+                        //               margin: const EdgeInsets.all(2),
+                        //               decoration: BoxDecoration(
+                        //                 color: Colors.white,
+                        //                 borderRadius: BorderRadius.circular(15),
+                        //                 boxShadow: [
+                        //                   BoxShadow(
+                        //                     color: Colors.grey.withOpacity(0.2),
+                        //                     spreadRadius: 1,
+                        //                     blurRadius: 5,
+                        //                     offset: const Offset(0, 2),
+                        //                   ),
+                        //                 ],
+                        //               ),
+                        //               child: Column(
+                        //                 crossAxisAlignment:
+                        //                     CrossAxisAlignment.start,
+                        //                 children: [
+                        //                   // Product Image with Favorite Icon
+                        //                   Container(
+                        //                     height: 100,
+                        //                     margin: EdgeInsets.all(10),
+                        //                     decoration: BoxDecoration(
+                        //                         color: Colors.blueGrey,
+                        //                         borderRadius: BorderRadius.only(
+                        //                             topLeft:
+                        //                                 Radius.circular(10),
+                        //                             topRight:
+                        //                                 Radius.circular(10),
+                        //                             bottomLeft:
+                        //                                 Radius.circular(10),
+                        //                             bottomRight:
+                        //                                 Radius.circular(10))),
+                        //                     child: Column(
+                        //                       children: [
+                        //                         ClipRRect(
+                        //                           borderRadius:
+                        //                               const BorderRadius.only(
+                        //                             topLeft:
+                        //                                 Radius.circular(15),
+                        //                             topRight:
+                        //                                 Radius.circular(15),
+                        //                           ),
+                        //                           child: Image.asset(
+                        //                             fscontroller.product[index]
+                        //                                 .imageUrl, // Replace with your image URL
+                        //                             height: 100,
+                        //                             width: double.infinity,
+                        //                             fit: BoxFit.contain,
+                        //                           ),
+                        //                         ),
+                        //                       ],
+                        //                     ),
+                        //                   ),
 
-                                          // Product Details
-                                          Padding(
-                                            padding:
-                                                const EdgeInsets.only(left: 13),
-                                            child: Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  "Product 1",
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.bold,
-                                                    fontSize: 16,
-                                                    color: Colors.black,
-                                                  ),
-                                                ),
-                                                const SizedBox(height: 4),
-                                                Text(
-                                                  "Category",
-                                                  style: TextStyle(
-                                                    color: Colors.grey,
-                                                    fontSize: 12,
-                                                  ),
-                                                ),
-                                                const SizedBox(height: 8),
-                                                Text(
-                                                  "20,000 Ks",
-                                                  style: TextStyle(
-                                                    color: Colors.pink,
-                                                    fontSize: 14,
-                                                    fontWeight: FontWeight.bold,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Positioned(
-                                      top: 10,
-                                      right: 10,
-                                      child: Container(
-                                        padding: EdgeInsets.all(5),
-                                        decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          shape: BoxShape.circle,
-                                        ),
-                                        child: Icon(
-                                          Icons.favorite_border,
-                                          color: Colors.redAccent,
-                                          size: 20,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                )),
-                          ),
-                        );
+                        //                   // Product Details
+                        //                   Padding(
+                        //                     padding:
+                        //                         const EdgeInsets.only(left: 13),
+                        //                     child: Column(
+                        //                       crossAxisAlignment:
+                        //                           CrossAxisAlignment.start,
+                        //                       children: [
+                        //                         Text(
+                        //                           "Product 1",
+                        //                           style: TextStyle(
+                        //                             fontWeight: FontWeight.bold,
+                        //                             fontSize: 16,
+                        //                             color: Colors.black,
+                        //                           ),
+                        //                         ),
+                        //                         const SizedBox(height: 4),
+                        //                         Text(
+                        //                           "Category",
+                        //                           style: TextStyle(
+                        //                             color: Colors.grey,
+                        //                             fontSize: 12,
+                        //                           ),
+                        //                         ),
+                        //                         const SizedBox(height: 8),
+                        //                         Text(
+                        //                           "20,000 Ks",
+                        //                           style: TextStyle(
+                        //                             color: Colors.pink,
+                        //                             fontSize: 14,
+                        //                             fontWeight: FontWeight.bold,
+                        //                           ),
+                        //                         ),
+                        //                       ],
+                        //                     ),
+                        //                   ),
+                        //                 ],
+                        //               ),
+                        //             ),
+                        //             Positioned(
+                        //               top: 10,
+                        //               right: 20,
+                        //               child: Container(
+                        //                 padding: EdgeInsets.all(5),
+                        //                 decoration: BoxDecoration(
+                        //                   color: Colors.white,
+                        //                   shape: BoxShape.circle,
+                        //                 ),
+                        //                 child: Icon(
+                        //                   Icons.favorite_border,
+                        //                   color: Colors.redAccent,
+                        //                   size: Dimesion.size10,
+                        //                 ),
+                        //               ),
+                        //             ),
+                        //           ],
+                        //         )),
+                        //   ),
+                        // );
+                        return AppCardWidget(index: index);
                       },
                     ),
                   ],

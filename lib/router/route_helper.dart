@@ -8,7 +8,9 @@ import 'package:top_star/screens/auth/verify_otp.dart';
 import 'package:top_star/screens/checkout_screen/checkout_widgets/success_screen.dart';
 import 'package:top_star/screens/filter_page.dart';
 import 'package:top_star/screens/menu/change_password.dart';
+import 'package:top_star/screens/menu/contact_us.dart';
 import 'package:top_star/screens/menu/fav_screen.dart';
+import 'package:top_star/screens/menu/privacy_policy.dart';
 import 'package:top_star/screens/menu/update_password.dart';
 import 'package:top_star/screens/nav/all_category_view.dart';
 import 'package:top_star/screens/nav/all_popular_product_view.dart';
@@ -54,21 +56,16 @@ class RouteHelper {
   static const String verifyOTP = "/verifyOTP";
   static const String profileUpdate = "/profileUpdate";
 
-
-
-  static const String orderHistoryDetail= "/orderHistoryDetail";
-  static const String viewImage= "/viewImage";
-   static const String newArrivalDetail = '/new-arrival-detail';
-   static const String allpopularproduct = '/all_popular-product';
-    static const String allcategory = '/all_category';
-     static const String productdetail = '/product_detail_page';
-      static const String fitsearch = '/filter_search_page';
-       static const String searchresult = '/search_results_page';
-
-
-
-
-
+  static const String orderHistoryDetail = "/orderHistoryDetail";
+  static const String viewImage = "/viewImage";
+  static const String newArrivalDetail = '/new-arrival-detail';
+  static const String allpopularproduct = '/all_popular-product';
+  static const String allcategory = '/all_category';
+  static const String productdetail = '/product_detail_page';
+  static const String fitsearch = '/filter_search_page';
+  static const String searchresult = '/search_results_page';
+  static const String privacyPolicy = "/privacyPolicy";
+  static const String contactUs = "/contactUs";
 
   static List<GetPage> routes = [
     GetPage(
@@ -76,19 +73,16 @@ class RouteHelper {
         page: () => const SplashScreen(),
         transition: Transition.fadeIn,
         transitionDuration: const Duration(milliseconds: 150)),
-
     GetPage(
         name: nav,
-        page: () =>  NavScreen(),
+        page: () => NavScreen(),
         transition: Transition.fadeIn,
         transitionDuration: const Duration(milliseconds: 150)),
-
     GetPage(
         name: noti,
         page: () => const NotiPage(),
         transition: Transition.fadeIn,
         transitionDuration: const Duration(milliseconds: 150)),
-
     GetPage(
       name: search,
       page: () {
@@ -99,51 +93,41 @@ class RouteHelper {
       transition: Transition.fadeIn,
       transitionDuration: const Duration(milliseconds: 100),
     ),
-
-
     GetPage(
         name: filter,
         page: () => const FilterPage(),
         transition: Transition.fadeIn,
         transitionDuration: const Duration(milliseconds: 150)),
-
-
     GetPage(
         name: login,
         page: () => const LoginPage(),
         transition: Transition.fadeIn,
         transitionDuration: const Duration(milliseconds: 150)),
-
-
     GetPage(
         name: register,
-        page: () =>  RegisterPage(),
+        page: () => RegisterPage(),
         transition: Transition.fadeIn,
         transitionDuration: const Duration(milliseconds: 150)),
-
     GetPage(
         name: orderhistory,
         page: () => const OrderHisScreen(),
         transition: Transition.fadeIn,
         transitionDuration: const Duration(milliseconds: 150)),
-
     GetPage(
         name: changePass,
-        page: () =>  ChangePasswordPage(),
+        page: () => ChangePasswordPage(),
         transition: Transition.fadeIn,
         transitionDuration: const Duration(milliseconds: 150)),
     GetPage(
         name: forgotPass,
-        page: () =>  ForgotPassPage(),
+        page: () => ForgotPassPage(),
         transition: Transition.fadeIn,
         transitionDuration: const Duration(milliseconds: 150)),
-
     GetPage(
         name: verifyOTP,
-        page: () =>  VerifyOtpPage(),
+        page: () => VerifyOtpPage(),
         transition: Transition.fadeIn,
         transitionDuration: const Duration(milliseconds: 150)),
-
     GetPage(
       name: orderHistoryDetail,
       page: () {
@@ -154,7 +138,6 @@ class RouteHelper {
       transition: Transition.downToUp,
       transitionDuration: const Duration(milliseconds: 100),
     ),
-
     GetPage(
       name: product_detail,
       page: () {
@@ -165,8 +148,6 @@ class RouteHelper {
       transition: Transition.downToUp,
       transitionDuration: const Duration(milliseconds: 100),
     ),
-
-
     GetPage(
       name: feeddetail,
       page: () {
@@ -177,8 +158,6 @@ class RouteHelper {
       transition: Transition.downToUp,
       transitionDuration: const Duration(milliseconds: 100),
     ),
-
-
     GetPage(
       name: profileUpdate,
       page: () {
@@ -189,33 +168,26 @@ class RouteHelper {
       transition: Transition.fadeIn,
       transitionDuration: const Duration(milliseconds: 100),
     ),
-
-
     GetPage(
         name: selectDeliveryScreen,
         page: () => const SelectDeliveryScreen(),
         transition: Transition.fadeIn,
         transitionDuration: const Duration(milliseconds: 150)),
-
     GetPage(
         name: success,
         page: () => const SuccessScreen(),
         transition: Transition.fadeIn,
         transitionDuration: const Duration(milliseconds: 150)),
-
     GetPage(
         name: fav,
         page: () => const FavScreen(),
         transition: Transition.fadeIn,
         transitionDuration: const Duration(milliseconds: 150)),
-
     GetPage(
         name: updatePass,
-        page: () =>  UpdatePasswordPage(),
+        page: () => UpdatePasswordPage(),
         transition: Transition.fadeIn,
         transitionDuration: const Duration(milliseconds: 150)),
-
-
     GetPage(
       name: viewImage,
       page: () {
@@ -226,8 +198,6 @@ class RouteHelper {
       transition: Transition.fadeIn,
       transitionDuration: const Duration(milliseconds: 100),
     ),
-
-
     GetPage(
         name: confirmCheckoutScreen,
         page: () {
@@ -246,34 +216,39 @@ class RouteHelper {
         },
         transition: Transition.fadeIn,
         transitionDuration: const Duration(milliseconds: 150)),
-
-   GetPage(
+    GetPage(
       name: newArrivalDetail,
       page: () => NewArrivalDetailView(),
     ),
-     GetPage(
+    GetPage(
       name: allpopularproduct,
-      page: () => AllPopularProductView(),),
-
-     GetPage(
+      page: () => AllPopularProductView(),
+    ),
+    GetPage(
       name: allcategory,
-      page: () => AllCategoryView(),),
-
-     GetPage(
+      page: () => AllCategoryView(),
+    ),
+    GetPage(
       name: productdetail,
-      page: () => ProductDetailPage(),),
-    
+      page: () => ProductDetailPage(),
+    ),
     GetPage(
       name: fitsearch,
-      page: () => FilterSearchView(),),
-
-     GetPage(
+      page: () => FilterSearchView(),
+    ),
+    GetPage(
       name: searchresult,
-      page: () => SearchResultView(),)
-    
-    
-    
-    
-
+      page: () => SearchResultView(),
+    ),
+    GetPage(
+        name: privacyPolicy,
+        page: () => const PrivacyPolicy(),
+        transition: Transition.fadeIn,
+        transitionDuration: const Duration(milliseconds: 150)),
+    GetPage(
+        name: contactUs,
+        page: () => const ContactUs(),
+        transition: Transition.fadeIn,
+        transitionDuration: const Duration(milliseconds: 150)),
   ];
 }

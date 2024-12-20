@@ -76,7 +76,7 @@ class PopularProductView extends GetView {
                           children: [
                             Container(
                               width: double.infinity, // Use full width
-                              // height: 100, // Card height
+                              height: Dimesion.height10*9, // Card height
                               decoration: BoxDecoration(
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(15),
@@ -95,7 +95,7 @@ class PopularProductView extends GetView {
                                   // Image Section
                                   Container(
                                     decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
+                                      borderRadius: BorderRadius.circular(Dimesion.radius10),
                                       color:
                                           popcontroller.products[index].color,
                                     ),
@@ -116,14 +116,19 @@ class PopularProductView extends GetView {
                                       ),
                                     ),
                                   ),
-                                  const SizedBox(
-                                      width:
-                                          10), // Space between image and text section
+                                  
+                                   SizedBox(
+                                      width:Dimesion.width10
+                                          ),
+                                          
+                                          
+                                          
+                                           
                                   // Product Details and Action Section
                                   Expanded(
                                     child: Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          vertical: 0, horizontal: 0),
+                                      padding:  EdgeInsets.only(
+                                          top: Dimesion.height10),
                                       child: Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
@@ -131,15 +136,14 @@ class PopularProductView extends GetView {
                                           // Product Title
                                           Padding(
                                             padding: EdgeInsets.only(
-                                              top: Dimesion.height5-3,
+                                              top: Dimesion.height5 - 3,
                                             ),
                                             child: Text(
                                               popcontroller.products[index]
                                                   .name, // Dynamic product title
-                                              style: const TextStyle(
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.bold,
-                                              ),
+                                              style:  TextStyle(
+                                                fontSize: Dimesion.font12,
+                                                fontWeight: FontWeight.bold,),
                                             ),
                                           ),
                                           // Product Description
@@ -147,11 +151,13 @@ class PopularProductView extends GetView {
                                             popcontroller.products[index].price
                                                 .toString(), // Dynamic product description
                                             style: TextStyle(
-                                              fontSize: Dimesion.font14,
+                                              fontSize: Dimesion.font12,
                                               color: Colors.grey[600],
                                             ),
                                           ),
-                                          SizedBox(height: Dimesion.height10,),
+                                          SizedBox(
+                                            height: Dimesion.height10,
+                                          ),
                                           // Price and View Details Button
                                           Row(
                                             mainAxisAlignment:
@@ -160,12 +166,11 @@ class PopularProductView extends GetView {
                                               Text(
                                                 '\$${product.price}', // Dynamic price
                                                 style: TextStyle(
-                                                  fontSize: Dimesion.font14,
+                                                  fontSize: Dimesion.font12,
                                                   fontWeight: FontWeight.bold,
                                                   color: Colors.green,
                                                 ),
                                               ),
-                                             
                                             ],
                                           ),
                                         ],
@@ -175,8 +180,6 @@ class PopularProductView extends GetView {
                                 ],
                               ),
                             ),
-
-
                             Positioned(
                               top: 5,
                               right: 5,
@@ -194,47 +197,41 @@ class PopularProductView extends GetView {
                                     ),
                                   ],
                                 ),
-                                child: Icon(
+                                child: const Icon(
                                   Icons.favorite_border,
                                   color: Colors.redAccent,
                                   size: 20,
                                 ),
                               ),
                             ),
-
                             Positioned(
                               bottom: 0,
                               right: 0,
-                              child:  Container(
-                                                padding: EdgeInsets.all(8),
-                                                decoration: BoxDecoration(
-                                                  color: AppColor.primaryClr,
-                                                  borderRadius:
-                                                      BorderRadius.only(
-                                                    topLeft: Radius.circular(
-                                                        Dimesion.radius10),
-                                                    bottomRight:
-                                                        Radius.circular(
-                                                            Dimesion.radius10),
-                                                  ),
-                                                ),
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    Get.toNamed(
-                                                        RouteHelper
-                                                            .productdetail,
-                                                        arguments:
-                                                            ProductDetailPage());
-                                                  },
-                                                  child: const Text(
-                                                    "View Details",
-                                                    style: TextStyle(
-                                                      color: Colors.white,
-                                                      fontSize: 15,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),)
+                              child: Container(
+                                padding: EdgeInsets.all(8),
+                                decoration: BoxDecoration(
+                                  color: AppColor.primaryClr,
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(Dimesion.radius10),
+                                    bottomRight:
+                                        Radius.circular(Dimesion.radius10),
+                                  ),
+                                ),
+                                child: InkWell(
+                                  onTap: () {
+                                    Get.toNamed(RouteHelper.productdetail,
+                                        arguments: ProductDetailPage());
+                                  },
+                                  child:  Text(
+                                    "View Details",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: Dimesion.font12,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            )
                           ],
                         ),
                       );

@@ -71,48 +71,21 @@ class ShopCategoryWidget extends StatelessWidget {
                           decoration: BoxDecoration(
                               color: AppColor.primaryClr,
                               borderRadius: BorderRadius.circular(10)),
-                          height: 10,
+                          // height: 10,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              // CachedNetworkImage(
-                              //   alignment: Alignment.center,
-                              //   width: Dimesion.imageSize_one,height: Dimesion.imageSize_one,
-                              //   imageUrl: data.image.toString(),
-                              //   placeholder: (context, url) => Container(),
-                              //   errorWidget: (context, url, error) => Container(
-                              //       height: MediaQuery.of(context).size.height,
-                              //       width: MediaQuery.of(context).size.width,
-                              //       decoration: BoxDecoration(
-                              //         color: Colors.transparent,
-                              //         borderRadius: BorderRadius.circular(Dimesion.radius5-2),
-                              //       ),
-                              //       child: CupertinoActivityIndicator(
-                              //         color: AppColor.primaryClr,
-                              //         animating: true,
-                              //       )),
-                              //   imageBuilder: (context, img) {
-                              //     return Container(
-                              //       decoration: BoxDecoration(
-                              //           borderRadius: BorderRadius.only(topLeft: Radius.circular(Dimesion.radius5),topRight: Radius.circular(Dimesion.radius5)),
-                              //           image: DecorationImage(
-                              //             image: img,
-                              //             fit: BoxFit.cover,
-                              //             filterQuality: FilterQuality.high,
-                              //             alignment: FractionalOffset.center,
-                              //           )),
-                              //     );
-                              //   },
-                              // ),
-                              Padding(padding: EdgeInsets.all(5),
+                              
+                              
+                              Padding(padding: EdgeInsets.all(Dimesion.size10/2.7),
                                 child: Center(
                                   child: Text(
                                     catname[index],
                                     style: GoogleFonts.outfit(
                                         textStyle: TextStyle(
                                             color: AppColor.white,
-                                            fontSize: Dimesion.font14,
-                                            fontWeight: FontWeight.bold)),
+                                            fontSize: Dimesion.font12,
+                                            )),
                                   ),
                                 ),
                               ),

@@ -165,14 +165,13 @@ class _SearchPageState extends State<SearchPage> {
             }, icon: Icon(Icons.arrow_back_ios)),
               title: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-            const SizedBox(
-              height: 30,
+                  children: [SizedBox(
+              height: Dimesion.height30,
             ),
 
             // Search Bar
             Padding(
-                padding: const EdgeInsets.only(right: 20, bottom: 20),
+                padding:  EdgeInsets.only(right: Dimesion.width20, bottom:  Dimesion.width20),
                 child: Row(children: [
                   Flexible(
                     child: InkWell(
@@ -220,8 +219,8 @@ class _SearchPageState extends State<SearchPage> {
                     Get.toNamed(RouteHelper.filter);
                   },
                   child: Container(
-                    height: 40,
-                    width: 40, // Ensure a consistent aspect ratio
+                   height: Dimesion.height40,
+                      width: Dimesion.width20*2,// Ensure a consistent aspect ratio
                     decoration: BoxDecoration(
                       color: AppColor
                           .primaryClr, // Use primary color for the container
@@ -247,7 +246,7 @@ class _SearchPageState extends State<SearchPage> {
             itemCount: 3,
             itemBuilder: (BuildContext context, int index) {
               return  Container(
-              padding: EdgeInsets.only(left: 30),
+              padding: EdgeInsets.only(left: Dimesion.width20),
               child:  Column(
                
                 children: [
